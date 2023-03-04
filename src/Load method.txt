@@ -1,0 +1,13 @@
+    public void Load(){
+        StudentDAOImpl dao = new StudentDAOImpl();
+        List<Student> list = dao.list();
+        DefaultTableModel defaultTableModel = (DefaultTableModel) table1.getModel();
+        defaultTableModel.setRowCount(0);
+        for(Student student : list){
+            int id = student.getId();
+            String name = student.getName();
+            String course = student.getCourse();
+            int fee = student.getFee();
+            defaultTableModel.addRow(new Object[]{id, name, course, fee});
+        }
+    }
